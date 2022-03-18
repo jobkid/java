@@ -1,0 +1,14 @@
+
+public class Question3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// 아래와 같이 실행하여(에러가 있다면 에러수정하여) 'e'의 문자를 출력할 수 있게 코드를 완성하시오
+		char b='d';
+		char c='d'+1;
+			System.out.println(b);
+			System.out.println(c);
+//		소문자 ''
+	}
+
+}

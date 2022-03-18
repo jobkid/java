@@ -1,0 +1,21 @@
+
+public class While {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+//		int i =0;
+//		while(i<10){
+//			System.out.println("¿¹");
+//			i=i+1;
+			
+//		}
+		int a=0;
+		do {
+			System.out.println("¿¹");
+			a++;
+		}while (a<5);
+		
+	}
+
+}

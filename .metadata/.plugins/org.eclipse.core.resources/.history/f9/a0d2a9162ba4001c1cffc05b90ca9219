@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Q02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("점수를 입력하세요");
+		Scanner score1=new Scanner(System.in);
+		Scanner score2=new Scanner(System.in);
+		Scanner score3=new Scanner(System.in);
+		Scanner score4=new Scanner(System.in);
+		Scanner score5=new Scanner(System.in);
+		int python=score1.nextInt();
+		int android=score2.nextInt();
+		int java=score3.nextInt();
+		int android=
+		
+		int sum=python+java+android+C+c
+				
+	}
+
+}

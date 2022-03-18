@@ -1,0 +1,19 @@
+
+public class Q01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int python, java, android, C, c;
+		python =60;
+		java =70;
+		android=80;
+		C=50;
+		c=30;
+		int sum=python+java+android+C+c;
+		float avr=(python+java+android+C+c)/5;
+				System.out.println("나잘난의 성적 총합계는"+sum+"입니다."+" 평균은 "+avr+"입니다.");
+		
+		
+	}
+
+}
