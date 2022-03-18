@@ -14,7 +14,7 @@ public class Question8 {
 		result=(byte)(result|flag1);
 		System.out.println(Integer.toBinaryString(result));
 		
-		
+		result
 
 	}
 
