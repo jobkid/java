@@ -15,7 +15,6 @@ public class Practice01 {
 		System.out.println(i);
 		int j = '2'-'0';
 		System.out.println(j);
-		char '0'==0;
 	}
 
 }

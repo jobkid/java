@@ -12,7 +12,7 @@ public class Test {
 		float f=12.5f;
 		double g=34.56;
 		char h='k';
-		string i = "hello java";
+		String str = "hello java";
 		System.out.println("boolean : "+a);
 		System.out.println();
 		System.out.println(str);

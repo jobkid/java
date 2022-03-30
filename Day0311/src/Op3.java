@@ -12,7 +12,7 @@ public class Op3 {
 		System.out.println(a<=b);
 		char A, B;
 		System.out.println('A'<'B');
-		int a=20;
+		
 		
 	}
 

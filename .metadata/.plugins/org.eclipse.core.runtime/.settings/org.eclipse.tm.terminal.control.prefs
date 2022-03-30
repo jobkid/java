@@ -1,2 +1,4 @@
 BACKGROUND=0,0,0
+BRIGHT_YELLOW=128,64,64
+YELLOW=128,0,0
 eclipse.preferences.version=1
