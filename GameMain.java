@@ -1,49 +1,44 @@
-package character;
+package Pocketmon;
+
 import java.util.Scanner;
 
 public class GameMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-//		PlayGame pg = new PlayGame(new Picachu());
-//		PlayGame pg = new PlayGame(new Gobook());
-//		PlayGame pg = new PlayGame(new Lee());
-		
 		Scanner sc=new Scanner(System.in);
-		System.out.println("========================");
-		System.out.println("========Ä³¸¯ÅÍ¼ºÀåÇÁ·Î±×·¥===");
-		System.out.println("========================");
+		System.out.println("=======================");
+		System.out.println("======ìºë¦­í„° ì„±ì¥ í”„ë¡œê·¸ë¨==");
+		System.out.println("=======================");
 		
-		System.out.println("Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇÏ¼¼¿ä. 1.ÇÇÄ«Ãò 2.²¿ºÏÀÌ 3.ÀÌ»óÇØ¾¾");
-		int a = sc.nextInt();
-		Character character=null;
+		System.out.println("ìºë¦­í„°ë¥¼ ì„ íƒí•˜ì„¸ìš”. 1.í”¼ì¹´ì¸„ 2. ê¼¬ë¶ì´ 3.ì´ìƒí•´ì”¨");
+		int a=sc.nextInt();
+		Pocketmon pocketmon=null;
 		switch(a)
 		{
 		case 1:
-			character = new Picachu();
+			pocketmon=new Picachu();
 			break;
 		case 2:
-			character = new Gobook();
+			pocketmon=new Gobook();
 			break;
 		case 3:
-			character = new Lee();
+			pocketmon=new Lee();
 			break;
-		default:
-//			System.out.println("Ä³¸¯ÅÍ¸¦ ¿Ã¹Ù¸£°Ô(1~3) ¼±ÅÃÇÏ¼¼¿ä.");
-			System.out.println("Àß¸ø ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
-		}
-
-		PlayGame pg;
 		
-		if(character==null)
+		default:
+			System.out.println("í¬ì¼“ëª¬ì„ ì˜¬ë°”ë¥´ê²Œ(1~3) ì„ íƒí•˜ì„¸ìš”.");
+			System.out.println("ì˜ëª» ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
+		}
+		PlayGame pg = null;
+		
+		if(pocketmon==null)
 		{
-			System.out.println("°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù.");
-			return;
+			System.out.println("ê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 		}
 		else
 		{
-			pg = new PlayGame(character);
+			pg=new PlayGame(pocketmon);
 		}
 		
 		while(true)
@@ -55,16 +50,14 @@ public class GameMain {
 				break;
 			}
 		}
-		System.out.println("ÇÁ·Î±×·¥ÀÌ Á¾·áµË´Ï´Ù.");
-		
-		
+		System.out.println("í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë©ë‹ˆë‹¤.");
 	}
 
 }
 
 class PlayGame
 {
-	private Character character;
+	private Pocketmon pocketmon;
 	private int menu;
 	private boolean exit;
 	
@@ -76,15 +69,13 @@ class PlayGame
 	{
 		this.exit=exit;
 	}
-	
-	PlayGame(Character character)
+	PlayGame(Pocketmon pocketmon)
 	{
-		this.character=character;
-		exit = false;
+		this.pocketmon=pocketmon;
 	}
 	void printMenu(Scanner sc)
 	{
-		System.out.println("1. ¹ä¸ÔÀÌ±â, 2. ÀáÀç¿ì±â 3. ³î¾ÆÁÖ±â 4. ¿îµ¿½ÃÅ°±â 5.½Î¿ì±â 6. Á¾·á");
+		System.out.println("1.ë°¥ë¨¹ì´ê¸°, 2. ì ì¬ìš°ê¸°, 3. ë†€ì•„ì£¼ê¸° 4.ìš´ë™ì‹œí‚¤ê¸° 5.ì‹¸ìš°ê¸° 6. ì¢…ë£Œ");
 		menu=sc.nextInt();
 	}
 	void play()
@@ -92,39 +83,39 @@ class PlayGame
 		switch(menu)
 		{
 		case 1:
-			character.eat();
+			pocketmon.eat();
 			break;
 		case 2:
-			character.sleep();
+			pocketmon.sleep();
 			break;
 		case 3:
-			character.play();
+			pocketmon.play();
 			break;
 		case 4:
-			character.train();
+			pocketmon.train();
 			break;
 		case 5:
-			character.levelUp();
+			pocketmon.fight();
 			break;
-			
 		}
-		character.printInfo();
+		pocketmon.printInfo();
 	}
 }
-abstract class Character
+abstract class Pocketmon
 {
-	protected int hp;//Ã¼·Â
-	protected int level=0;//·¹º§
-	protected int energy;//¿¡³ÊÁö
-	protected int exp;//°æÇèÄ¡
+	protected int hp;
+	protected int level;
+	protected int energy;
+	protected int exp;
+	protected boolean win;
 	
 	public abstract void eat();
 	public abstract void sleep();
 	public abstract boolean play();
 	public abstract boolean train();
-	public abstract void levelUp();
 	public abstract void fight();
-	
+	public abstract boolean levelUp();
+
 	public boolean checkEnergy()
 	{
 		if(energy<=0)
@@ -136,37 +127,32 @@ abstract class Character
 			return false;
 		}
 	}
-	
-	public boolean evolution()
+
+	public void evolution()
 	{
-		if(level>5) {
-			System.out.println("ÁøÈ­µÇ¾ú½À´Ï´Ù.");
+		if(level>5)
+		{
+			System.out.println("ì§„í™”ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			
-			return true;
 		}
 		
-		else
-		{
-			return false;
-		}
 	}
-	
 	public void printInfo()
 	{
-		System.out.println("ÇöÀç Ä³¸¯ÅÍÀÇ Á¤º¸");
-		System.out.println("hp="+hp+"/"+"energy="+energy+"level="+level);
+		System.out.println("í˜„ì¬ ìºë¦­í„°ì˜ ì •ë³´");
+		System.out.println("hp="+hp+" / "+"energy="+energy+" / "+"exp="+exp+"level="+level);
 	}
-	
 }
 
-class Picachu extends Character
+class Picachu extends Pocketmon
 {
 	Picachu()
 	{
 		hp=30;
+		level=1;
 		energy=50;
 		exp=0;
-		System.out.println("ÇÇÄ«Ãß°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+		System.out.println("í”¼ì¹´ì¸„ë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤");
 		printInfo();
 	}
 	public void eat()
@@ -175,148 +161,149 @@ class Picachu extends Character
 	}
 	public void sleep()
 	{
-		energy=energy+5;
-	}
-	public boolean train()
-	{
-		energy=energy-15;
-		hp=hp+20;
-		levelUp();
-		return checkEnergy();
+		energy+=20;
 	}
 	public boolean play()
 	{
-		energy=energy-20;
-		hp=hp+5;
-		levelUp();
+		energy-=20;
+		hp+=5;
 		return checkEnergy();
 	}
-	public void levelUp()
+	public boolean train()
 	{
-		if(exp>=60)
-		{
-			level++;
-			hp=hp-40;
-		}
-		
+		energy-=15;
+		hp+=20;
+		return checkEnergy();
 	}
 	public void fight()
 	{
-		boolean win=true;
-		if(win) {
-			exp+=20;
-		}
-	}
-	public boolean evolution()
-	{
-		if(level>5) {
-			System.out.println("¶óÀÌÃò·Î ÁøÈ­µÇ¾ú½À´Ï´Ù.");
-			
-			return true;
-		}
+		exp+=20;
 		
-		else
+	}
+	public boolean levelUp()
+	{
+		if(exp>80)
 		{
-			return false;
+			level++;
 		}
+		return true;
+		
+	}
+	public void evolution()
+	{
+		if(level>5)
+		{
+			System.out.println("ë¼ì´ì¸„ë¡œ ì§„í™”ë˜ì—ˆìŠµë‹ˆë‹¤.");		
+		}
+	}	
+	
 }
 
-class Gobook extends Character
+class Gobook extends Pocketmon
 {
 	Gobook()
 	{
-		hp=40;
+		hp=30;
+		level=1;
 		energy=50;
 		exp=0;
-		System.out.println("²¿ºÏÀÌ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ê¼¬ë¶€ê¸°ë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤");
 		printInfo();
 	}
 	public void eat()
 	{
-		energy=energy+15;
+		energy=energy+10;
 	}
 	public void sleep()
 	{
-		energy=energy+10;
-	}
-	public boolean train()
-	{
-		energy=energy-30;
-		hp=hp+20;
-		levelUp();
-		return checkEnergy();
+		energy+=20;
 	}
 	public boolean play()
 	{
-		energy=energy-20;
-		hp=hp+5;
-		levelUp();
+		energy-=20;
+		hp+=5;
 		return checkEnergy();
 	}
-	public void levelUp()
+	public boolean train()
 	{
-		if(exp>=60)
-		{
-			level++;
-			hp=hp-50;
-		}
-		
+		energy-=15;
+		hp+=20;
+		return checkEnergy();
 	}
 	public void fight()
 	{
-		boolean win=true;
-		if(win) {
-			exp+=20;
+		exp+=20;
+	}
+	public boolean levelUp()
+	{
+		if(exp>80)
+		{
+			level++;
+//			hp-=40;
+		}
+		return true;
+	}
+	public void evolution()
+	{
+		if(level>5)
+		{
+			System.out.println("ì–´ë‹ˆë¶€ê¸°ë¡œ ì§„í™”ë˜ì—ˆìŠµë‹ˆë‹¤.");		
 		}
 	}
 }
 
-class Lee extends Character
+class Lee extends Pocketmon
 {
 	Lee()
 	{
-		hp=20;
+		hp=40;
+		level=1;
 		energy=30;
 		exp=0;
-		System.out.println("ÀÌ»óÇØ¾¾°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ì´ìƒí•´ì”¨ë¥¼ ì–»ì—ˆìŠµë‹ˆë‹¤");
 		printInfo();
 	}
 	public void eat()
 	{
-		energy=energy+5;
+		energy=energy+10;
 	}
 	public void sleep()
 	{
-		energy=energy+20;
-	}
-	public boolean train()
-	{
-		energy=energy-10;
-		hp=hp+20;
-		levelUp();
-		return checkEnergy();
+		energy+=20;
 	}
 	public boolean play()
 	{
-		energy=energy-10;
-		hp=hp+5;
-		levelUp();
+		energy-=20;
+		hp+=5;
 		return checkEnergy();
 	}
-	public void levelUp()
+	public boolean train()
 	{
-		if(exp>=60)
-		{
-			level++;
-			hp=hp-35;
-		}
-		
+		energy-=15;
+		hp+=20;
+		return checkEnergy();
 	}
 	public void fight()
 	{
-		boolean win=true;
-		if(win) {
+//		if (win)
+//		{
 			exp+=20;
+//		}
+	}
+	public boolean levelUp()
+	{
+		if(exp>80)
+		{
+			level++;
+//			hp-=40;
+		}
+		return true;
+	}
+	public void evolution()
+	{
+		if(level>5)
+		{
+			System.out.println("ì´ìƒí•´í’€ë¡œ ì§„í™”ë˜ì—ˆìŠµë‹ˆë‹¤.");		
 		}
 	}
 }
