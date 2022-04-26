@@ -1,5 +1,4 @@
 package character;
-
 import java.util.Scanner;
 
 public class GameMain {
@@ -85,7 +84,7 @@ class PlayGame
 	}
 	void printMenu(Scanner sc)
 	{
-		System.out.println("1. 밥먹이기, 2. 잠재우기 3. 놀아주기 4. 운동시키기 5. 종료");
+		System.out.println("1. 밥먹이기, 2. 잠재우기 3. 놀아주기 4. 운동시키기 5.싸우기 6. 종료");
 		menu=sc.nextInt();
 	}
 	void play()
@@ -107,21 +106,24 @@ class PlayGame
 		case 5:
 			character.levelUp();
 			break;
+			
 		}
 		character.printInfo();
 	}
 }
 abstract class Character
 {
-	protected int hp;//경험치
+	protected int hp;//체력
 	protected int level=0;//레벨
 	protected int energy;//에너지
+	protected int exp;//경험치
 	
 	public abstract void eat();
 	public abstract void sleep();
 	public abstract boolean play();
 	public abstract boolean train();
 	public abstract void levelUp();
+	public abstract void fight();
 	
 	public boolean checkEnergy()
 	{
@@ -134,6 +136,21 @@ abstract class Character
 			return false;
 		}
 	}
+	
+	public boolean evolution()
+	{
+		if(level>5) {
+			System.out.println("진화되었습니다.");
+			
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
+	}
+	
 	public void printInfo()
 	{
 		System.out.println("현재 캐릭터의 정보");
@@ -148,6 +165,7 @@ class Picachu extends Character
 	{
 		hp=30;
 		energy=50;
+		exp=0;
 		System.out.println("피카추가 생성되었습니다.");
 		printInfo();
 	}
@@ -175,13 +193,32 @@ class Picachu extends Character
 	}
 	public void levelUp()
 	{
-		if(hp>=40)
+		if(exp>=60)
 		{
 			level++;
 			hp=hp-40;
 		}
 		
 	}
+	public void fight()
+	{
+		boolean win=true;
+		if(win) {
+			exp+=20;
+		}
+	}
+	public boolean evolution()
+	{
+		if(level>5) {
+			System.out.println("라이츄로 진화되었습니다.");
+			
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
 }
 
 class Gobook extends Character
@@ -190,6 +227,7 @@ class Gobook extends Character
 	{
 		hp=40;
 		energy=50;
+		exp=0;
 		System.out.println("꼬북이가 생성되었습니다.");
 		printInfo();
 	}
@@ -217,12 +255,19 @@ class Gobook extends Character
 	}
 	public void levelUp()
 	{
-		if(hp>=50)
+		if(exp>=60)
 		{
 			level++;
 			hp=hp-50;
 		}
 		
+	}
+	public void fight()
+	{
+		boolean win=true;
+		if(win) {
+			exp+=20;
+		}
 	}
 }
 
@@ -232,6 +277,7 @@ class Lee extends Character
 	{
 		hp=20;
 		energy=30;
+		exp=0;
 		System.out.println("이상해씨가 생성되었습니다.");
 		printInfo();
 	}
@@ -259,11 +305,18 @@ class Lee extends Character
 	}
 	public void levelUp()
 	{
-		if(hp>=35)
+		if(exp>=60)
 		{
 			level++;
 			hp=hp-35;
 		}
 		
+	}
+	public void fight()
+	{
+		boolean win=true;
+		if(win) {
+			exp+=20;
+		}
 	}
 }
