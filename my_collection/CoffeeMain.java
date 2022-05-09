@@ -161,9 +161,9 @@ class Coffee
 		return price;
 	}
 	
-//	public String toString()
-//	{
-//		return "Member [name= "+name+", brand= "+brand+", price= "+price+"]";
-//	}
+	public String toString()
+	{
+		return "Member [name= "+name+", brand= "+brand+", price= "+price+"]";
+	}
 	
 }
