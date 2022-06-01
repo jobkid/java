@@ -43,20 +43,20 @@ class Manager{
 		BufferedWriter bw = new BufferedWriter(movie);
 		
 		//System.out.println("영화 등록은 '1' 종료는 '0'");
-		System.out.println("영화 제목, 장르, 연령대를 5번 작성해주세요. 작성은 '1' 종료는 '0'");
+		//System.out.println("영화 제목, 장르, 연령대를 5번 작성해주세요. 작성은 '1' 종료는 '0'");
 		//Scanner sc = new Scanner(System.in);
 		//int tmp=sc.nextInt();
 		
 		int i=5;
 		while (i>0){
-	
-			//int exit=sc.nextInt();
-			//int tmp1=sc.nextInt();
+			System.out.println("영화 제목, 장르, 연령대를 "+i+"번 작성해주세요. 작성은 '1' 종료는 '0'");
+			
 			Scanner sc = new Scanner(System.in);
 			int tmp=sc.nextInt();
 			if(tmp==1)
 			{
 				Scanner moviesc = new Scanner(System.in);
+				
 				System.out.print("영화를 등록합니다.");
 				String title=moviesc.nextLine();
 				
@@ -67,6 +67,7 @@ class Manager{
 				String age=moviesc.nextLine();
 			
 				System.out.println("========================================");
+				
 				
 				bw.write(title+", "+janre+", "+age);
 				bw.newLine();
@@ -84,7 +85,8 @@ class Manager{
 
 	}
 	
-	void getMovie(){
+	void getMovie()
+	{
 		
 	}
 	
