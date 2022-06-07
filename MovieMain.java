@@ -29,11 +29,12 @@ public class MovieMain {
 		*/
 		
 		Manager admin = new Manager();
-		admin.getMovie();
-		System.out.println("=================");
+		//admin.getMovie();
+		//System.out.println("=================");
 		//admin.seeList();
-		System.out.println("================");
+		//System.out.println("================");
 		//admin.addMovie();
+		admin.managerMenu();
 		
 	}
 
@@ -55,9 +56,19 @@ class Manager{
 		switch(num)
 		{
 		case 1: getMovie();
+		break;
+		
 		case 2: addMovie();
+		break;
+		
 		case 3: seeList();
+		break;
+		
 		case 4: delMovie();
+		break;
+		
+		case 0:managerMenu();
+		break;
 		}
 		
 	}
@@ -104,17 +115,12 @@ class Manager{
 		movie.close();
 		
 		System.out.println("영화 등록 종료");
-
+		managerMenu();
 	}
 	
 	void getMovie() throws IOException
 	{
 		setMovie();
-//		FileReader movies=new FileReader("src/project/movie.txt");
-//		BufferedReader br=new BufferedReader(movies);
-//		
-//		br.close();
-//		movies.close();
 	}
 	
 	void seeList() throws IOException
@@ -128,6 +134,7 @@ class Manager{
 				System.out.print((char)data);
 				fr.close();
 		}catch(FileNotFoundException e) {e.printStackTrace();}
+		managerMenu();
 	}
 	
 	void addMovie() throws IOException
@@ -167,12 +174,14 @@ class Manager{
 		}
 		bw.close();
 		fw.close();
+		System.out.println("영화 추가했습니다.");
+		managerMenu();
 	}
 	
 	void delMovie() throws IOException
 	{
 		System.out.println("삭제할 영화를 선택해주세요.\n===================");
-		seeList();
+		
 		ArrayList<String> movielists=new ArrayList<String>();
 		FileReader fr = new FileReader(fileName);
 		BufferedReader br = new BufferedReader(fr);
@@ -180,7 +189,7 @@ class Manager{
 		
 		while((dataStr=br.readLine())!=null)
 		{
-			System.out.println(movielists.add(dataStr));
+			movielists.add(dataStr);
 		}
 		
 		System.out.println("번호를 입력해주세요.\n==================");
@@ -196,11 +205,13 @@ class Manager{
 			if(fileName.canWrite())
 			{
 				bw.write(movielists.get(i));
+				bw.newLine();
 			}
 		}
 		bw.flush();
 		bw.close();
 		fw.close();
+		managerMenu();
 	}
 	
 }
