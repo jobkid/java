@@ -2,11 +2,13 @@ package project;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+
 
 public class MovieMain {
 
@@ -27,11 +29,11 @@ public class MovieMain {
 		*/
 		
 		Manager admin = new Manager();
-//		admin.getMovie();
+		admin.getMovie();
 		System.out.println("=================");
-		admin.movieList();
+		//admin.seeList();
 		System.out.println("================");
-		admin.addMovie();
+		//admin.addMovie();
 		
 	}
 
@@ -39,20 +41,31 @@ public class MovieMain {
 
 class Manager{
 	
-	String fileName="";
+	File fileName=new File("src/project/movies.txt");
+	String dataStr;
 	Manager(){
+		
+	}
+	void managerMenu() throws IOException
+	{
+		System.out.println("관리자 메뉴입니다. [1] 영화 등록 [2] 영화 추가 [3] 영화 목록 [4] 영화 삭제");
+		Scanner scanner=new Scanner(System.in);
+		int num=scanner.nextInt();
+		
+		switch(num)
+		{
+		case 1: getMovie();
+		case 2: addMovie();
+		case 3: seeList();
+		case 4: delMovie();
+		}
 		
 	}
 	
 	public void setMovie() throws IOException{
 		
-		FileWriter movie = new FileWriter("src/project/movie.txt");
+		FileWriter movie = new FileWriter(fileName);
 		BufferedWriter bw = new BufferedWriter(movie);
-		
-		//System.out.println("영화 등록은 '1' 종료는 '0'");
-		//System.out.println("영화 제목, 장르, 연령대를 5번 작성해주세요. 작성은 '1' 종료는 '0'");
-		//Scanner sc = new Scanner(System.in);
-		//int tmp=sc.nextInt();
 		
 		int i=5;
 		while (i>0){
@@ -104,11 +117,10 @@ class Manager{
 //		movies.close();
 	}
 	
-	void movieList() throws IOException
+	void seeList() throws IOException
 	{
 		try
 		{
-			String fileName="src/project/movie.txt";
 			FileReader fr=new FileReader(fileName);
 			
 			int data=0;
@@ -122,11 +134,9 @@ class Manager{
 	{
 		int data=0;
 //		movieList();
-		File f = new File("src/project/movie.txt");
 		System.out.println("===================");
 		System.out.println("영화를 추가하시겠습니까?");
 		
-		String fileName="src/project/movie.txt";
 		FileReader fr=new FileReader(fileName);
 		BufferedReader br=new BufferedReader(fr);
 		
@@ -147,7 +157,7 @@ class Manager{
 			System.out.print("연령대를 입력합니다.");
 			String age=sc.nextLine();
 			
-			bw.write(System.currentTimeMillis()+movie+genre+age);
+			bw.write(System.currentTimeMillis()+", "+movie+", "+genre+", "+age);
 			bw.newLine();
 			//System.out.println();
 			
@@ -159,5 +169,38 @@ class Manager{
 		fw.close();
 	}
 	
+	void delMovie() throws IOException
+	{
+		System.out.println("삭제할 영화를 선택해주세요.\n===================");
+		seeList();
+		ArrayList<String> movielists=new ArrayList<String>();
+		FileReader fr = new FileReader(fileName);
+		BufferedReader br = new BufferedReader(fr);
+		
+		
+		while((dataStr=br.readLine())!=null)
+		{
+			System.out.println(movielists.add(dataStr));
+		}
+		
+		System.out.println("번호를 입력해주세요.\n==================");
+		Scanner sc=new Scanner(System.in);
+		int movnum=sc.nextInt();
+		movielists.remove(movnum);
+		
+		FileWriter fw = new FileWriter(fileName);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		for(int i=0; i<movielists.size(); i++)
+		{
+			if(fileName.canWrite())
+			{
+				bw.write(movielists.get(i));
+			}
+		}
+		bw.flush();
+		bw.close();
+		fw.close();
+	}
+	
 }
-
