@@ -8,7 +8,7 @@
 		<style>
 			#wrap{
 				width:400px;
-				vorder:5px solid lightgray;
+				border:5px solid lightgray;
 				margin:0 auto;
 			}
 			#wrap input{
@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<form method="post" action="">
+			<form method="post" action="submit.jsp">
 				<fieldset>
 					<legend>크기 설정</legend>
 					<input type="number" placeholder="tr수를 입력해주세요" name="tr" min="1" max="5">
