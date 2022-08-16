@@ -1,0 +1,255 @@
+================================================
+서하나 추가 분 
+create database dobong default CHARACTER SET UTF8; 
+create database dobong1 default CHARACTER SET UTF8; 
+
+
+=================================================
+register   
+select *from register;
+desc register;
+drop table register;
+=================================================
+create table register(
+number int(10) primary key auto_increment,
+id varchar(30) not null,
+nickname varchar(30) not null,
+name varchar(30) not null,
+password varchar(30) not null,
+phone varchar(30) not null,
+email varchar(30) not null,
+address varchar(50) not null,
+tos1 int(10) not null,
+tos2 int(10) not null,
+category int not null,
+meter varchar(255));
+
+
+==총 12개========================================
+수정 벨류값 
+id>> 이메일
+nickname>> 영문, 또는 숫자 및 영문조합으로 6~10자
+('park@naver.com', 'parkih', '박인후', '00002', '01042354567', 'park@naver.com', '서울시 구로구', 1, 1, 1, '도봉구정보를 알고싶어서' );
+================================================
+
+insert into register(id, nickname, name, password, phone, email, address, tos1, tos2,  category, meter)
+values
+('kim','김군','김철수','00001','01044564356','kim@naver.com','서울시 노원구',1,1,1,'일반회원','도봉구정보를 알고싶어서');
+('park','박군','박인후','00002','01042354567','park@naver.com','서울시 구로구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('trigger','트군','홍길동','00003','01023452321','tri@naver.com','서울시 강남구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jung','정군','정성호','00005','01033216689','jung@naver.com','서울시 서초구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('flat','플군','임철보','00004','01099786654','im@naver.com','서울시 종로구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('glo','글군','박문수','00006','01078563963','glo@naver.com','서울시 마포구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('nnde','느군','제갈수','00007','01046784667','nnde@naver.com','서울시 서대문구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('chichi','치군','지서연','00008','01065791234','chichi@google.com','서울시 중랑구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('fire','파군','초문도','00009','01000986456','fire@daum.net','서울시 양천구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('ice','아군','심민재','00010','01011236775','ice@naver.com','서울시 관악구',1,1,1,'관리자','도봉구정보를 알고싶어서'),
+('umbak','엄군','엄백호','00011','01077543453','baek@naver.com','서울시 동작구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('gongson','공군','공손찬','00012','01033426785','gongson@naver.com','서울시 동대문구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jojo','조군','조조','00013','01022344123','jojo@google.com','서울시 강동구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('ubi','유군','유비','00014','01022344123','ubi@naver.com','서울시 은평구',1,1,1,'관리자','도봉구정보를 알고싶어서'),
+('songwon','송군','손권','00015','01062774832','songwon@daum.net','서울시 중구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('sunouk','순군','순욱','00016','01021397534','sunouk@naver.com','서울시 노원구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jungouk','욱군','정욱','00017','01011210984','jungouk@google.com','서울시 강서구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jaegal','제갈군','제갈량','00018','01066312212','jaegal@naver.com','서울시 금천구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('masok','마군','마속','00019','01065561123','masok@google.com','서울시 가리봉동',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('nosuk','노군','노숙','00020','01022304451','nosuk@naver.com','서울시 금천구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('ugum','우군','우금','00021','01064123308','ugum@naver.com','서울시 광진구',1,1,1,'관리자','도봉구정보를 알고싶어서'),
+('sixson','육군','육손','00022','01088423334','sixson@naver.com','서울시 성동구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jangbi','장군','장비','00023','01012234422','jangbi@google.co.kr','서울시 성북구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('hwangchung','황군','황충','00024','01086306784','hwang@naver.com','서울시 중랑구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('bubjung','법군','법정','00025','01023123375','law@google.com','서울시 동대문구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('bangtong','방군','방통','00026','01010487544','bangtong@naver.com','서울시 구로구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jangryo','료군','장료','00027','01099942345','oneeye@daum.net','서울시 동대문구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('ugi','기군','유기','00028','01022678876','ugi@naver.com','서울시 강동구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('jingung','징군','진궁','00029','01066545641','jingung@naver.com','서울시 마포구',1,1,1,'일반회원','도봉구정보를 알고싶어서'),
+('sonja','자군','손자','00030','01022354123','sonja@naver.com','서울시 동대문구',1,1,1,'일반회원','도봉구정보를 알고싶어서');
+
+
+select password  from 테이블명 where id='아이디'; // boolean 타입으로 출력가능. 있으면 1 없으면 0;
+select * from 테이블명 where id='아이디' and password='비밀번호';//아이디와 비밀번호가 둘다 일치해야 회원정보가 출력됨.
+delete from register where id='아이디';//회원탈퇴
+update register set 
+nickname='변경하고자 하는 닉네임',
+password='변경하고자 하는 비밀번호',
+phone='변경하고자 하는 전화번호',
+address='변경하고자 하는 주소',
+meter='변경하고자 하는 가입이유'
+where id='sonja';//회원정보 변경
+select * from register;//회원정보전체보기
+select id from register where nickname='기존에 가입한 닉네임' and phone='기존에 가입한 전화번호' and email='기존에 가입한 이메일';//아이디찾기
+select password from register where id='기존에 가입한 아이디' and nickname='기존에 가입한 닉네임' and phone='기존에 가입한 전화번호' and email='기존에 가입한 이메일';//아이디찾기
+
+
+---------------------------------------------------------------------------------------------------
+review
+select *from review;
+
+================================================================
+create table review(
+number int(10) primary key auto_increment,
+nickname varchar(30) not null,
+review text(65000) not null,
+writingtime timestamp default current_timestamp,
+changetime datetime,
+textminning varchar(30),
+detailpage_number int(10));
+
+
+
+
+===전체로 쿼리문을 넣을 수는 없고 1줄씩 인설트==================
+====== +(숫자)한 이유는 수정날짜는 
+insert into review(nickname, review, changetime, textminning, detailpage_number)
+values
+('김군','이곳은 별로 였습니다.',now(), '최악',1);============1번째 데이터만 insert 오류!
+('박군','너무 좋았습니다 최고!',now()+11,'좋음',1),
+('트군','고기맛이 별로에요 ㅜㅜ',now()+12,'보통',2),
+('정군','안주가 너무 적습니다 두번다시 방문의사 없음.',now()+13,'최악',3),
+('플군','분위기가 근사해요 자꾸생각나게만드네요.',now()+15,'좋음',3),
+('글군','너무좋았어요 여자친구랑 다시오고싶아요.',now()+16,'좋음',2),
+('느군','두번다시 오고싶지않아요. 제 인생 최악의 음식집 이런곳에서 돈쓸바엔 그냥 허공에 뿌리는게 더 나을거같아요.',now()+17,'최악',1),
+('치군','부모님과 함께 한 이곳이 제가 가본곳중 최고의 곳이었습니다. 이렇게 좋은곳을 알게해준 도봉따봉에게 너무 감사합니다. 사랑해요 도봉따봉',now()+18,'최고',4),
+('파군','두번다시 안옴. 여기때문에 여자친구랑 싸움',now()+19,'최악',5),
+('아군','아 이거 참 어떻게 좋다고 해야할지 모르겠습니다.',now()+20,'보통',3),
+('엄군','다음엔 남자친구들과 오는게 아닌 여자친구와 같이 오고싶습니다.',now()+21,'좋음',2),
+('공군','좋읍니다.',now()+22,'좋음',1),
+('조군','최악 여기와서 여자친구랑 헤어짐',now()+23,'좋음',1),
+('유군','안옴 여기 두번다시 안옴.',now()+24,'최고',4),
+('송군','좋다.',now()+25,'좋음',5),
+('순군','매우좋음',now()+26,'최고',4),
+('욱군','구림',now()+27,'보통',3);
+
+
+
+
+
+select review,detailpage_number from review;
+select review, detailpage_number from review order by changetime asc limit 10;//최신글 10개만 보여주게 해주세요.
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------
+
+create table intropage(
+number int(10) primary key auto_increment,
+nickname varchar(30),
+shortpage text(65000),
+detailpage text(65000),
+api_latitude int(10),
+api_longitude int(10),
+image blob(65000),
+textminning1 varchar(10),
+textminning2 varchar(10),
+textminning3 varchar(10),
+textminning4 varchar(10));
+
+
+insert into intropage (
+
+
+------------------------------------------------------------------------------------------------------
+create table comment(
+number int(10) primary key auto_increment,
+comment text(65000),
+nickname varchar(30),
+writingtime timestamp default current_timestamp,
+reviewpage_number int(10),
+comment_level int(10),
+re_comment_level int(10));
+
+
+insert into comment(comment, nickname, reviewpage_number, comment_level, re_comment_level)
+values
+('개 구림 여기 왜감?','김군',1,1,0),
+('여자친구랑 여기 가봤는데 별로던데','박군',1,2,0),
+('그래도 갈만하던데','이군',1,1,1),
+('별로임','최군',1,1,2),
+('여기 좋았었음','어군',3,1,0),
+('이게 좋다고?','모군',3,1,1),
+('구림','호군',4,1,0),
+('좋긴좋더라','아군',4,2,0),
+('좋긴개뿔','손군',4,2,1),
+('좋았음','유군',1,2,1),
+('개좋더라','키군',1,3,1),
+('한잔하기 딱 좋음','미군',1,2,2),
+('굿굿베리굿 좋은가게 추천 감사합니다.','교군',2,1,0),
+('또가즈아아','한군',1,1,3),
+('고고 보드게임 ㄱㄱ','도군',10,1,0),
+('헌팅포차가는애들이나 갈만한곳','멸군',4,2,2),
+('윽엑','바군',2,1,1),
+('진짜 또감?','이군',1,1,4),
+('좋긴하더만 트집잡네','어군',3,1,2),
+('트집이 아니라 개구리니까 그렇지','모군',3,1,3),
+('바찌가고싶을떄 갈만한곳','뮤군',1,1,2);
+ 
+select review.detailpage_number, review.review, comment.comment from review
+join comment
+on review.detailpage_number=comment.review_number;
+
+select * from test order by detailpage_number, comment_number asc;// 오름차순 정렬
+select *,number from comment order by reviewpage_number, comment_level, re_comment_level;//오름차순 정렬(리뷰페이지넘버,댓글,대댓글순으로 정렬)
+delete from comment where number='위에서 출력받은 숫자';//위에서 출력받은 숫자를 토대로 삭제하고 싶은 댓글을 위에서 출력받은 숫자로 적음.
+---------------------------------------------------------------------------------------------------------
+create table admin(
+number int(10) primary key auto_increment,
+id varchar(30) not null,
+password varchar(30) not null,
+nickname varchar(30) not null);
+
+-------------------------------------------------------------------------------------------------------
+
+create table notice(
+number int(10) primary key auto_increment,
+nickname varchar(30),
+page blob(65000) ,
+attachment blob(65000),
+writingtime timestamp default current_timestamp,
+changetime datetime);
+-------------------------------------------------------------------------------------------------------
+================================================
+서하나 추가 분 
+------------------------------------
+select *from notice_tb;
+--------------------------------------
+★ blob (binary large object : 바이너리 데이터 타입)
+이미지파일, 텍스트파일, 엑셀파일 등 파일 자체를 저장할 때 사용하는 DB 필드 타입 중 하나★
+
+SELECT * FROM notice_tb WHERE number=1;
+timestamp 타입경우 now()을 사용함
+//여기를 어떻게 진행해야되는지 모르겠네 수정부분 확인
+
+create table notice_tb(
+number int(10) primary key auto_increment,
+nickname varchar(30),
+title varchar(30),
+content text,
+file blob(65000),
+writingtime timestamp default current_timestamp,
+changetime datetime);
+
+
+insert into notice_tb(nickname, title, content, writingtime, changetime)
+values
+('test', 'test: 채용안내', '북부기술원에서 채용안내', now(), now()+1);
+
+insert into notice_tb(nickname, title, content, writingtime, changetime)
+values
+('test', 'test: 기술부분', '바이너리 데이터타입', now(), now()+2);
+
+=================================================
+
+
+
+---------------------------------------------------------------------------------------------------------
+
